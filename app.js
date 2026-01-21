@@ -3,6 +3,7 @@ import cors from "cors";
 import authRoutes from "./routes/authRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
 import gameRoutes from "./routes/gameRoutes.js"
+import achievementRoutes from "./routes/achievementRoutes.js"
 const app = express();
 
 app.use(express.json());
@@ -14,5 +15,6 @@ app.use(cors({
 app.use("/api/auth", authRoutes);
 app.use("/api/user", userRoutes);
 app.use("/api/games", gameRoutes);
+app.use("/api/achievements", achievementRoutes);
 
 export default app;

@@ -1,10 +1,10 @@
 import express from "express"
-import authRouter form "/routes"
+import authRouter from "/routes"
 const app = express();
 
 //Middlewares
 
-app.use("/api/auth", )
+app.use("/api/auth",)
 
 
 

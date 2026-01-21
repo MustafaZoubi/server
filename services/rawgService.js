@@ -1,3 +1,4 @@
+import fetch from "node-fetch";
 
 const RAWG_BASE = "https://api.rawg.io/api";
 const KEY = process.env.RAWG_API_KEY;

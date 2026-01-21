@@ -2,44 +2,35 @@ import mongoose from "mongoose";
 
 const gameSchema = new mongoose.Schema(
     {
-        title: String,
+        title: { type: String, required: true },
         price: Number,
-
-        rawgId: {
-            type: Number,
-            required: true,
-        },
-
+        rawgId: Number,
         genres: [String],
-
         platforms: {
             pc: Boolean,
             playstation: Boolean,
             xbox: Boolean,
-            switch: Boolean,
+            switch: Boolean
         },
-
-        releaseDate: Date,
+        releaseDate: String,
         publisher: String,
-
         description: String,
-
         systemRequirements: {
             minimum: {
                 os: String,
                 cpu: String,
                 ram: String,
                 gpu: String,
-                storage: String,
+                storage: String
             },
             recommended: {
                 os: String,
                 cpu: String,
                 ram: String,
                 gpu: String,
-                storage: String,
-            },
-        },
+                storage: String
+            }
+        }
     },
     { timestamps: true }
 );

@@ -1,19 +1,24 @@
 import Game from "../models/Game.js";
-import { getGameImages } from "../services/rawgService.js";
 
+export const getAllGames = async (req, res) => {
+    try {
+        const games = await Game.find();
+        res.json(games);
+    } catch (err) {
+        res.status(500).json({ message: "Failed to fetch games" });
+    }
+};
 
 export const getGameById = async (req, res) => {
     try {
         const game = await Game.findById(req.params.id);
-        if (!game) return res.status(404).json({ message: "Game not found" });
 
-        const images = await getGameImages(game.rawgId);
+        if (!game) {
+            return res.status(404).json({ message: "Game not found" });
+        }
 
-        res.status(200).json({
-            ...game.toObject(),
-            images,
-        });
+        res.json(game);
     } catch (err) {
-        res.status(500).json({ message: "Failed to load game" });
+        res.status(400).json({ message: "Invalid game ID" });
     }
 };

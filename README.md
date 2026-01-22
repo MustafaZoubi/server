@@ -1,6 +1,6 @@
-# 🎮 GameVault Server (Express + MongoDB)
+# 🎮 Aracadia Server (Express + MongoDB)
 
-This is the **backend** for the **GameVault** gaming platform. It provides APIs for **user authentication**, **profile management**, **games browsing (with RAWG images)**, **achievements**, **cart**, **wishlist**, and **admin dashboard CRUD** (users, games, achievements).
+This is the **backend** for the **Arcadia** gaming platform. It provides APIs for **user authentication**, **profile management**, **games browsing (with RAWG images)**, **achievements**, **cart**, **wishlist**, and **admin dashboard CRUD** (users, games, achievements).
 
 ---
 

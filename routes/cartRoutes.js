@@ -1,5 +1,4 @@
 import { Router } from "express";
-import { protect } from "../middleware/authMiddleware.js";
 import {
     getMyCart,
     addToCart,
@@ -7,13 +6,14 @@ import {
     removeCartItem,
     clearCart,
 } from "../controllers/cartController.js";
+import { protect } from "../middleware/authMiddleware.js";
 
 const router = Router();
 
 router.get("/", protect, getMyCart);
 router.post("/add", protect, addToCart);
-router.patch("/item/:gameId", protect, updateCartItemQty);
-router.delete("/item/:gameId", protect, removeCartItem);
-router.post("/clear", protect, clearCart);
+router.patch("/update/:gameId", protect, updateCartItemQty);
+router.delete("/remove/:gameId", protect, removeCartItem);
+router.delete("/clear", protect, clearCart);
 
 export default router;

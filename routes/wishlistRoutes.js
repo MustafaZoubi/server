@@ -4,12 +4,12 @@ import {
     toggleWishlistItem,
     removeWishlistItem,
 } from "../controllers/wishlistController.js";
-import authMiddleware from "../middleware/authMiddleware.js";
+import { protect } from "../middleware/authMiddleware.js";
 
 const router = Router();
 
-router.get("/", authMiddleware, getMyWishlist);
-router.post("/toggle", authMiddleware, toggleWishlistItem);
-router.delete("/:gameId", authMiddleware, removeWishlistItem);
+router.get("/", protect, getMyWishlist);
+router.post("/toggle", protect, toggleWishlistItem);
+router.delete("/:gameId", protect, removeWishlistItem);
 
 export default router;

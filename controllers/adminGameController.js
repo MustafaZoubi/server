@@ -1,7 +1,7 @@
 import Game from "../models/Game.js";
 
 export const getAllGames = async (req, res) => {
-    const games = await Game.find();
+    const games = await Game.find().sort({ createdAt: -1 });
     res.json(games);
 };
 
@@ -24,6 +24,7 @@ export const updateGame = async (req, res) => {
     res.json(game);
 };
 
+// DELETE game
 export const deleteGame = async (req, res) => {
     await Game.findByIdAndDelete(req.params.id);
     res.json({ message: "Game deleted" });

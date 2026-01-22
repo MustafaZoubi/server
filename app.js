@@ -9,9 +9,7 @@ import wishlistRoutes from "./routes/wishlistRoutes.js";
 import adminRoutes from "./routes/adminRoutes.js";
 
 const app = express();
-app.get("/", (res, req) => {
-    res.send("App is running")
-})
+
 app.use(express.json());
 app.use(cors({
     origin: [
@@ -20,7 +18,9 @@ app.use(cors({
     ],
     credentials: true
 }));
-
+app.get("/", (res, req) => {
+    res.send("App is running")
+})
 app.use("/api/auth", authRoutes);
 app.use("/api/user", userRoutes);
 app.use("/api/games", gameRoutes);

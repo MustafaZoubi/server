@@ -18,9 +18,9 @@ app.use(cors({
     ],
     credentials: true
 }));
-app.get("/", (res, req) => {
-    res.send("App is running")
-})
+app.get("/", (req, res) => {
+    res.send("App is running ");
+});
 app.use("/api/auth", authRoutes);
 app.use("/api/user", userRoutes);
 app.use("/api/games", gameRoutes);

@@ -1,7 +1,8 @@
 import Game from "../models/Game.js";
 
 export const getAllGames = async (req, res) => {
-    res.json(await Game.find());
+    const games = await Game.find();
+    res.json(games);
 };
 
 export const createGame = async (req, res) => {
@@ -10,7 +11,16 @@ export const createGame = async (req, res) => {
 };
 
 export const updateGame = async (req, res) => {
-    const game = await Game.findByIdAndUpdate(req.params.id, req.body, { new: true });
+    const game = await Game.findByIdAndUpdate(
+        req.params.id,
+        req.body,
+        { new: true }
+    );
+
+    if (!game) {
+        return res.status(404).json({ message: "Game not found" });
+    }
+
     res.json(game);
 };
 

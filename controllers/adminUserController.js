@@ -7,7 +7,9 @@ export const getAllUsers = async (req, res) => {
 
 export const updateUserRole = async (req, res) => {
     const user = await User.findById(req.params.id);
-    if (!user) return res.status(404).json({ message: "User not found" });
+    if (!user) {
+        return res.status(404).json({ message: "User not found" });
+    }
 
     user.role = user.role === "admin" ? "user" : "admin";
     await user.save();

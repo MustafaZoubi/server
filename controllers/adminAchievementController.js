@@ -1,7 +1,8 @@
 import Achievement from "../models/Achievement.js";
 
 export const getAllAchievements = async (req, res) => {
-    res.json(await Achievement.find().populate("game"));
+    const achievements = await Achievement.find().populate("game");
+    res.json(achievements);
 };
 
 export const createAchievement = async (req, res) => {

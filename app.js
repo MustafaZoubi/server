@@ -9,7 +9,9 @@ import wishlistRoutes from "./routes/wishlistRoutes.js";
 import adminRoutes from "./routes/adminRoutes.js";
 
 const app = express();
-
+app.get("/", (res, req) => {
+    res.send("App is running")
+})
 app.use(express.json());
 app.use(cors({
     origin: [

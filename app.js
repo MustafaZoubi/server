@@ -14,6 +14,7 @@ app.use(express.json());
 app.use(cors({
     origin: [
         "http://localhost:5173",
+        "https://client-production-3146.up.railway.app"
     ],
     credentials: true
 }));

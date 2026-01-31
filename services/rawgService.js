@@ -8,8 +8,7 @@ export const getGameImages = async (rawgId) => {
 
     try {
         const res = await fetch(
-            `https://api.rawg.io/api/games/${rawgId}?key=7debfcfa88614cf294949a3b6b176713`
-
+            `${RAWG_BASE}/games/${rawgId}?key=${KEY}`
         );
 
         if (!res.ok) {
@@ -22,11 +21,10 @@ export const getGameImages = async (rawgId) => {
         return {
             background: data.background_image || null,
 
-            // 👇 THIS is where your “screenshots” come from
             screenshots: data.background_image_additional
                 ? [data.background_image_additional]
                 : []
-        };
+        };        
     } catch (err) {
         console.warn("RAWG error:", err.message);
         return { background: null, screenshots: [] };
